@@ -17,12 +17,25 @@
  *   }
 **/
 
-
-
-
-
-
-
+function showStats(n, array) {
+	let stats = {
+		count_inputEqualTo: 0,
+		count_inputGreaterThan: 0,
+		count_inputLessThan: 0,
+		inputArraySize: 0
+	};
+	for (let i=0; i<array.length; i++) {
+		if (array[i] === n) {
+			stats.count_inputEqualTo += 1;
+		} else if (array[i] > n) {
+			stats.count_inputGreaterThan += 1;
+		} else if (array[i] < n) {
+			stats.count_inputLessThan += 1;
+		}	
+	}
+	stats.inputArraySize = array.length;
+	return stats;
+}
 
 //*~*~*-*~*~*~*~*~ Don't Touch *~*~*~*~*~*~*~*~*~*~*~
 
@@ -47,16 +60,16 @@ console.log("===========================================");
 console.log();
 
 console.log("[3] Should return 19");
-console.assert( stats_1.count_inputGreaterThan === 19  ) ;
+console.assert( stats_1.count_inputLessThan === 19  ) ;
 console.log("===========================================");
 console.log();
 
 console.log("[4] Should return 28");
-console.assert( stats_2.count_inputGreaterThan === 28 ) ;
+console.assert( stats_2.count_inputLessThan === 28 ) ;
 console.log("===========================================");
 console.log();
 
 console.log("[5] Should return 8");
-console.assert( stats_2.count_inputLessThan === 8 ) ;
+console.assert( stats_2.count_inputGreaterThan === 8 ) ;
 console.log("===========================================");
 console.log();

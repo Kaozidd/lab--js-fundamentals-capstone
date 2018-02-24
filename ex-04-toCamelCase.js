@@ -7,9 +7,23 @@
  *
  */
 
-
-
-
+function toCamelCase(string) {
+	let camel = string.toLowerCase();
+	const arr = camel.split(' ');
+	let tempWord = '';
+	let tempFinArr = [];
+	tempFinArr.push(arr[0]);
+	let camelRes = "";
+	for (let i=1; i<arr.length; i++) {
+		tempWord = arr[i];
+		let tempArr = tempWord.split('');
+		tempArr[0] = tempArr[0].toUpperCase();
+		tempWord = tempArr.join('')
+		tempFinArr.push(tempWord);
+	}
+	camelRes = tempFinArr.join('');
+	return camelRes;
+}
 
 //~+~+~+~+~+~+~+~Don't Touch~+~+~++~+~+~+~+~+~+~+
 console.log("[1] Should return 'fetchRecords'");

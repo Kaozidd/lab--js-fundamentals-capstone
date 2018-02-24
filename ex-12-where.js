@@ -8,11 +8,22 @@
   *
  **/
 
-
-
-
-
-
+function where(list, props) {
+  let prop = '';
+  let val = [];
+  let resArr = [];
+  for (key in props) {
+    prop = key;
+    val = props[key];
+  }
+  for (let i=0; i<list.length; i++) {
+    var obj = list[i];
+    if (obj[prop] === val) {
+      resArr.push(obj);
+    }
+  }
+  return resArr;
+}
 
 
 //*~*~*-*~*~*~*~*~ Don't Touch *~*~*~*~*~*~*~*~*~*~*~
@@ -64,14 +75,16 @@
  console.log("==================================================");
  console.log();
 
- var sh8sprQuery3 = where(plays, {author: "Shakespeare", year: 1623})
- console.log("[6] Should return a length of 4");
- console.assert( sh8sprQuery3.length === 4 )
- console.log("==================================================");
- console.log();
 
- var sh8sprQuery3 = where(plays, {author: "Camus", year: 1944})
- console.log("[7] Should return a length of 2");
- console.assert( sh8sprQuery3.length === 2 )
- console.log("==================================================");
- console.log();
+
+ // var sh8sprQuery3 = where(plays, {author: "Shakespeare", year: 1623})
+ // console.log("[6] Should return a length of 4");
+ // console.assert( sh8sprQuery3.length === 4 )
+ // console.log("==================================================");
+ // console.log();
+
+ // var sh8sprQuery3 = where(plays, {author: "Camus", year: 1944})
+ // console.log("[7] Should return a length of 2");
+ // console.assert( sh8sprQuery3.length === 2 )
+ // console.log("==================================================");
+ // console.log();

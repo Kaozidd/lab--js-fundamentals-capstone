@@ -20,9 +20,38 @@
 *
 **/
 
+// *** VERSION 01 *** //
+
+function encodeURL(data) {
+	let encUrl = '';
+	encUrl = data.split('%');
+	let tempData = encUrl.join('%25');
+	encUrl = tempData.split('!');
+	tempData = encUrl.join('%21');
+	encUrl = tempData.split('\"');
+	tempData = encUrl.join('%22');
+	encUrl = tempData.split('$');
+	tempData = encUrl.join('%24');
+	encUrl = tempData.split('\'');
+	tempData = encUrl.join('%27');
+	encUrl = tempData.split(' ');
+	tempData = encUrl.join('%20');
+	return tempData;
+}
 
 
+// *** VERSION 02 *** //
 
+function encodeURL(data) {
+	var result = data;
+	const charDetect = ['%', '!', '\"', '$', '\'', ' '];
+	const charReplace = ['%25', '%21', '%22', '%24', '%27', '%20'];
+	for (let i=0; i<charDetect.length; i++) {
+		result = result.split(charDetect[i]);
+		result = result.join(charReplace[i]);
+	}
+	return result;
+}
 
 //*~*~*-*~*~*~*~*~ Don't Touch *~*~*~*~*~*~*~*~*~*~*~
 
@@ -47,6 +76,6 @@ console.log();
 
 var encodedURL4 = encodeURL("20% of $100")
 console.log("[4] Should return '20%25%20of%20%24100'")
-console.assert(encodedURL3 === "20%25%20of%20%24100")
+console.assert(encodedURL4 === "20%25%20of%20%24100")
 console.log("=================================================================================");
 console.log();

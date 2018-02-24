@@ -9,6 +9,15 @@
  *
 **/
 
+function pluck(list, prop) {
+	let res = [];
+	for (let i=0; i<list.length; i++) {
+		let tempVal = "";
+		tempVal = list[i][prop];
+		res.push(tempVal);
+	}
+	return res;
+}
 
 //*~*~*-*~*~*~*~*~ Don't Touch *~*~*~*~*~*~*~*~*~*~*~
 

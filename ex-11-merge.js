@@ -9,17 +9,24 @@
  *
 **/
 
-
-
-
-
-
+function merge(obj1, obj2) {
+	let resObj = {};
+	for (var key in obj1) {
+		resObj[key] = obj1[key];
+	}
+	for (var key in obj2) {
+		resObj[key] = obj2[key];
+	}
+	return resObj;
+}
 
 
 
 //*~*~*-*~*~*~*~*~ Don't Touch *~*~*~*~*~*~*~*~*~*~*~
 var obj1 = {name: "Shaman Tilroy", age: 33, id: 6288}
 var obj2 = {id: 6288, balance: 38832, accountActive: true }
+
+
 
 var merged = merge(obj1, obj2)
 

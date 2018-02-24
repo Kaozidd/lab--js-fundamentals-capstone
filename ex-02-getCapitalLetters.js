@@ -9,6 +9,17 @@
 
 
 
+function getCapitalLetters(string) {
+	let upperCase = [];
+	const arr = string.split(' ');
+	const modStr = arr.join('');
+	for (let i=0; i<modStr.length; i++) {
+		if (modStr[i] == modStr[i].toUpperCase()) {
+			upperCase.push(modStr[i]);
+		}
+	}
+	return upperCase;
+}
 
 
 
@@ -47,6 +58,7 @@ console.log();
 console.log("[5] Should return 'X' in the 6th index");
 console.assert( output_2[6] === 'X' )
 console.log("=====================================");
+
 
 //Explorer Mode: Make these tests pass
 //---------------------

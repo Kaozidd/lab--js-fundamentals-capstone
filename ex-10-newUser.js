@@ -17,11 +17,30 @@
  *
 **/
 
+function newUser(userName, userRole) {
+	let user = {
+		name: userName, 
+		role: userRole, 
+		createdAt: Date.now(),
+		hasPermissions: function(rolesArray) {
+			let bool = false;
+			for (let i=0; i<rolesArray.length; i++) {
+				if (user.userRole === rolesArray[i]) {
+					bool = true;
+				}
+			}
+			return bool;
+		}
+	}
+	return user;
+}
+
+
 
  //*~*~*-*~*~*~*~*~ Don't Touch *~*~*~*~*~*~*~*~*~*~*~
 
-var simpleUser = new User('jill88', 'visitor')
-var adminUser = new User('jack76', 'admin')
+var simpleUser = newUser('jill88', 'visitor')
+var adminUser = newUser('jack76', 'admin')
 var contentCreatorList = ['editor', 'admin']
 
 console.log("[1] Should return 'jill88'");
@@ -70,6 +89,6 @@ console.log("=======================================");
 console.log();
 
 console.log("[10] Should return true for permissions");
-console.assert(simpleUser.hasPermissions(contentCreatorList) === true )
+console.assert(adminUser.hasPermissions(contentCreatorList) === true )
 console.log("=======================================");
 console.log();

@@ -8,14 +8,30 @@
  *
 **/
 
-
-
-
-
-
-
-
-
+function getWordCount(param) {
+	var punctArray = ['\'', '-', '.', ',', '?', '…', '!', '[', ']'];
+	var testArr = [];
+	var testTxt = param;
+	for (let i=0; i<punctArray.length; i++) {
+		var split = punctArray[i];
+		testArr = testTxt.split(split);
+		testTxt = testArr.join('');
+	}
+	var text = testTxt.toLowerCase();
+	var array = text.split(' ');
+	var newArray = [];
+	var obj = {};
+	for (let i=0; i<array.length; i++) {
+		let tempVar = 0;
+		for (let e=0; e<array.length; e++) {
+			if (array[i] === array[e]) {
+				tempVar += 1;
+			}
+		}
+		obj[array[i]] = tempVar
+	}
+	return obj;
+}
 
 
 //*~*~*-*~*~*~*~*~ Don't Touch *~*~*~*~*~*~*~*~*~*~*~
@@ -24,6 +40,7 @@ var sampleText = `I'm tired of trying to find happiness through lies and self-me
 I need a fake passport, preferably to France. I like the way they think. Oh, COME ON! YOU'RE the Chiclet! Not me. Caw ca caw, caw ca caw, caw ca caw! It's ok. You be with Yam. So did you see the new Poof? His name's Gary and we don't need anymore lawsuits. If this were a Lifetime Moment of Truth movie, this would be our act break. But it wasn't. Michael, look, this has got to stop. I mean, flattered? Yes. Interested? Not tonight.
 I'm foolish and I'm funny and I'm needy. Am I needy? Are you sure I'm not needy? 'Cause I feel needy sometimes. Obviously this blue part here is the land.
 Let's see some bananas and nuts! This was a big get for God. They don't allow you to have bees in here. I want to cry so bad, but I don't think I can spare the moisture. No, Pop-pop does not get a treat, I just brought you a [bleep]ing pizza. It walked on my pillow! I'll buy you a hundred George Michaels that you can teach to drive! A group of British builders operating outside the O.C.`
+
 
 var wordFrequencyObject = getWordCount(sampleText)
 

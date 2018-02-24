@@ -8,8 +8,25 @@
  * - for every number that is a multiple of 3 and 5, return "FizZBuzZ"
 **/
 
-
-
+function fizzbuzz(n) {
+	let res = "";
+	const NaM3o5 = ".";
+	const M3bn5 = "fizz";
+	const M5bn3 = "buzz";
+	const M3a5 = "FizZBuzZ";
+	for (let i=1; i<=n; i++) {
+		if (i%3 !== 0 && i%5 !== 0) {
+			res += NaM3o5;
+		} else if (i%3 === 0 && i%5 !== 0) {
+			res += M3bn5;
+		} else if (i%5 === 0 && i%3 !== 0) {
+			res += M5bn3;
+		} else if (i%3 === 0 && i%5 === 0) {
+			res += M3a5;
+		}
+	}
+	return res;
+}
 
 /**
  * Ex. fizzbuzz(3) === "..fizz"
