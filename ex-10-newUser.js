@@ -1,4 +1,4 @@
-/**
+	/**
  * new User()
  *
  * (1) Create a User constructor function that creates new users.
@@ -25,7 +25,7 @@ function newUser(userName, userRole) {
 		hasPermissions: function(rolesArray) {
 			let bool = false;
 			for (let i=0; i<rolesArray.length; i++) {
-				if (user.userRole === rolesArray[i]) {
+				if (userRole === rolesArray[i]) {
 					bool = true;
 				}
 			}

@@ -60,9 +60,9 @@ console.assert( output_2[6] === 'X' )
 console.log("=====================================");
 
 
-//Explorer Mode: Make these tests pass
-//---------------------
-// var output_3 = getCapitalLetters('TLDR; My mother gave Nancy nothing for Xmas.')
-// console.assert( output_2.length === 7 )
-// console.assert( output_2[3] === 'R' )
-// console.assert( output_2[6] === 'X' )
+// Explorer Mode: Make these tests pass
+// ---------------------
+var output_3 = getCapitalLetters('TLDR; My mother gave Nancy nothing for Xmas.')
+console.assert( output_2.length === 7 )
+console.assert( output_2[3] === 'R' )
+console.assert( output_2[6] === 'X' )
